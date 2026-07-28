@@ -26,6 +26,28 @@ fun main() {
         println("The first letter of the second string" +
                 " DOES NOT EXIST in the first string.")
     }
+
+    val result3 = doesFirstLetterNoContainsExist(str1, str2)
+
+    if (result3) {
+        println("The first letter of the second string" +
+                " EXISTS in the first string.")
+    }
+    else {
+        println("The first letter of the second string" +
+                " DOES NOT EXIST in the first string.")
+    }
+
+    val result4 = doesFirstLetterNoContainsExist(str1, str3)
+
+    if (result4) {
+        println("The first letter of the second string" +
+                " EXISTS in the first string.")
+    }
+    else {
+        println("The first letter of the second string" +
+                " DOES NOT EXIST in the first string.")
+    }
 }
 
 fun doesFirstLetterExist(first: String, second: String): Boolean {
@@ -40,5 +62,28 @@ fun doesFirstLetterExist(first: String, second: String): Boolean {
 
     // Check if it exists in the first string using the contains method
     return first.contains(firstCharOfSecond, ignoreCase = true)
+
+}
+
+fun doesFirstLetterNoContainsExist(first: String, second: String): Boolean {
+
+    // Handle empty string edge cases
+    if (second.isEmpty()) {
+        return false
+    }
+
+    // Take the first character of the second string
+    val firstCharOfSecond = second[0]
+
+    // loop through each character of the first string
+    for (char in first) {
+        // Compare characters ignoring case
+        if(char.equals(firstCharOfSecond, ignoreCase = true)) {
+            return true
+        }
+    }
+
+    // If we finish the loop without finding it, return false
+    return false
 
 }
